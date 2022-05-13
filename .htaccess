@@ -1,0 +1,103 @@
+##  !!! ( DO NOT MESS WITH THIS FILE ) ELSE ( YOU WILL HAVE A MESSED UP PROJECT) (-_-)
+## Generic settings
+Options +FollowSymLinks -MultiViews -Indexes
+RewriteEngine On
+RewriteBase /
+<FilesMatch "^\.([a-zA-Z0-9\.\_\-]{1,})$">
+  Order Deny,Allow
+  Deny from all
+</FilesMatch>
+##--
+##-REWRITEPATH-START
+SetEnvIf Request_URL "^.*" SHORTCUT_PATH=/dev
+##-REWRITEPATH-END
+#-FORCE-WWW-START
+# RewriteCond %{HTTP_HOST} !=""
+# RewriteCond %{HTTP_HOST} !^www\. [NC]
+# RewriteCond %{HTTPS}s ^on(s)|
+# RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#-FORCE-WWW-END
+##-REMOVE-WWW-START
+# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+# RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [R=301,QSA,NC,L]
+##-REMOVE-WWW-END
+##-FORCE-HTTPS-START
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+##-FORCE-HTTPS-END
+RewriteRule ^wh/905([0-9]{8,11})/?$ /src/WebHook.php?store=905$1 [L]
+RewriteRule ^cws\@([a-zA-Z0-9\-]{6,16})/?$ /app/index/get-cws?code=$1 [NC,L,R=301]
+##-APP-SHORTCUT-START
+##-tymfrontiers-cdn/base-service.soswapp-START
+RewriteRule ^service/?$ /app/tymfrontiers-cdn/base-service.soswapp/ [QSA,NC,L]
+RewriteRule ^service/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers-cdn/base-service.soswapp/service/$1.php [QSA,NC,L]
+RewriteRule ^service/([0-9a-zA-Z\-\.]{3,})/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers-cdn/base-service.soswapp/service/$1-$2.php [QSA,NC,L]
+RewriteRule ^service/(.*)$ /app/tymfrontiers-cdn/base-service.soswapp/$1 [QSA,NC,L]
+##-tymfrontiers-cdn/base-service.soswapp-END
+##-ikechukwuokalia/file-manager.soswapp-START
+RewriteRule ^app/file\-manager/?$ /app/ikechukwuokalia/file-manager.soswapp/ [QSA,NC,L]
+RewriteRule ^app/file\-manager/(src|css|img|js|font|sass)/(.*)$ /app/ikechukwuokalia/file-manager.soswapp/$1/$2 [QSA,NC,L]
+RewriteRule ^app/file\-manager/(image|audio|video|document)/?$ /app/ikechukwuokalia/file-manager.soswapp/?type=$1 [QSA,NC,L]
+RewriteRule ^app/file\-manager/([0-9a-zA-Z\-\.]{3,})/?$ /app/ikechukwuokalia/file-manager.soswapp/service/$1.php [QSA,NC,L]
+RewriteRule ^app/file\-manager/([0-9a-zA-Z\-\.]{3,})/([0-9a-zA-Z\-\.]{3,})/?$ /app/ikechukwuokalia/file-manager.soswapp/service/$1-$2.php [QSA,NC,L]
+RewriteRule ^app/file\-manager/(.*)$ /app/ikechukwuokalia/file-manager.soswapp/$1 [QSA,NC,L]
+##-ikechukwuokalia/file-manager.soswapp-END
+##-tymfrontiers/cws-web-store.soswapp-START
+RewriteRule ^(app\/)?(web\-store|webstore|ws)/?$ /app/tymfrontiers/cws-web-store.soswapp/ [QSA,NC,L]
+RewriteRule ^(app\/)?(web\-store|webstore|ws)/(905|683|922|206|022|026|341|082|802|392|600|682|266|606|262|062|185)\-?([0-9\-]{8,11})/?$ /app/tymfrontiers/cws-web-store.soswapp/service/cws.php?code=$3$4 [QSA,NC,L]
+RewriteRule ^(app\/)?(web\-store|webstore|ws)/(905)\-?([0-9\-]{8,11})/(products|services|about\-us|contact\-us|terms)/?$ /app/tymfrontiers/cws-web-store.soswapp/service/store-$5.php?code=$3$4 [QSA,NC,L]
+RewriteRule ^(app\/)?(web\-store|webstore|ws)/(src|css|js|sass|img|fonts?)/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-web-store.soswapp/$3/$4 [QSA,NC,L]
+RewriteRule ^(app\/)?(web\-store|webstore|ws)/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-web-store.soswapp/service/$3.php [QSA,NC,L]
+RewriteRule ^(app\/)?(web\-store|webstore|ws)/([0-9a-zA-Z\-\.]{3,})/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-web-store.soswapp/service/$3-$4.php [QSA,NC,L]
+RewriteRule ^(app\/)?(web\-store|webstore|ws)/(.*)$ /app/tymfrontiers/cws-web-store.soswapp/$3 [QSA,NC,L]
+##-tymfrontiers/cws-web-store.soswapp-END
+##-tymfrontiers/cws-index.soswapp-START
+RewriteRule ^(app\/)?(index|i)/?$ /app/tymfrontiers/cws-index.soswapp/ [QSA,NC,L]
+RewriteRule ^(app\/)?(index|i)/(src|css|js|sass|img|fonts?)/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-index.soswapp/$3/$4 [QSA,NC,L]
+RewriteRule ^(app\/)?(index|i)/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-index.soswapp/service/$3.php [QSA,NC,L]
+RewriteRule ^(app\/)?(index|i)/([0-9a-zA-Z\-\.]{3,})/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-index.soswapp/service/$3-$4.php [QSA,NC,L]
+RewriteRule ^(app\/)?(index|i)/(.*)$ /app/tymfrontiers/cws-index.soswapp/$3 [QSA,NC,L]
+##-tymfrontiers/cws-index.soswapp-END
+##-tymfrontiers/cws-helper.soswapp-START
+RewriteRule ^app/helper/?$ /app/tymfrontiers/cws-helper.soswapp/ [QSA,NC,L]
+RewriteRule ^app/helper/(src|css|js|sass|img|fonts?)/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-helper.soswapp/$1/$2 [QSA,NC,L]
+RewriteRule ^app/helper/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-helper.soswapp/service/$1.php [QSA,NC,L]
+RewriteRule ^app/helper/([0-9a-zA-Z\-\.]{3,})/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-helper.soswapp/service/$1-$2.php [QSA,NC,L]
+RewriteRule ^app/helper/(.*)$ /app/tymfrontiers/cws-helper.soswapp/$1 [QSA,NC,L]
+##-tymfrontiers/cws-helper.soswapp-END
+##-tymfrontiers/cws-account.soswapp-START
+RewriteRule ^app/tymfrontiers(\-cdn)?/user.soswapp/(.*)?$ /app/tymfrontiers/cws-account.soswapp/$2 [QSA,NC,L]
+RewriteRule ^app/(user|account|my\-account)/(css|js|sass|img|src|fonts?)/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-account.soswapp/$2/$3 [QSA,NC,L]
+RewriteRule ^app/(user|account|my\-account)/?$ /app/tymfrontiers/cws-account.soswapp/ [QSA,NC,L]
+RewriteRule ^app/(user|account|my\-account)/(sign\-up|signup|register)$ /app/tymfrontiers/cws-account.soswapp/service/sign-up.php [QSA,NC,L]
+RewriteRule ^app/(user|account|my\-account)/(sign\-up|signup|register)/([0-9a-zA-Z\-\.]{3,21})/?$ /app/tymfrontiers/cws-account.soswapp/service/sign-up.php?referer=$3 [QSA,NC,L]
+RewriteRule ^app/(user|account|my\-account)/(sign\-in|signin|login)/?$ /app/tymfrontiers/cws-account.soswapp/service/sign-in.php [QSA,NC,L]
+RewriteRule ^app/(user|account|my\-account)/(sign\-out|signout|logout)/?$ /app/tymfrontiers/cws-account.soswapp/service/sign-out.php [QSA,NC,L]
+RewriteRule ^app/(user|account|my\-account)/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-account.soswapp/service/$2.php [QSA,NC,L]
+RewriteRule ^app/(user|account|my\-account)/([0-9a-zA-Z\-\.]{3,})/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers/cws-account.soswapp/service/$2-$3.php [QSA,NC,L]
+RewriteRule ^app/(user|account|my\-account)/(.*)$ /app/tymfrontiers/cws-account.soswapp/$2 [QSA,NC,L]
+##-tymfrontiers/cws-account.soswapp-END
+##-tymfrontiers/cws-error-pages.soswapp-START
+RewriteRule ^(app\/)?(400|401|403|404|500)/?$ /app/tymfrontiers/cws-error-pages.soswapp/service/$2.php [QSA,NC,L]
+##-tymfrontiers/cws-error-pages.soswapp-END
+##-APP-LOCATOR-START
+RewriteRule ^(app\/)?(policy|terms|contact|contact\-us|about|about\-us|faqs?)/?$ /app/index/$2 [QSA,NC,L,R=301]
+RewriteRule ^(app\/)?(about|about\-us)/(site\-map|sitemap)$ /app/index/ [QSA,NC,L,R=301]
+RewriteRule ^app/(prjman|navlist)/?$ /app/soswapp/$1.soswapp/ [QSA,NC,L]
+RewriteRule ^app/(prjman|navlist)/(.*)?$ /app/soswapp/$1.soswapp/$2 [QSA,NC,L]
+RewriteRule ^(app/)?(apps|applications)/?$ /app/soswapp/app-explorer.soswapp/ [QSA,NC,L]
+RewriteRule ^(app/)?file/?$ /app/soswapp/file.soswapp/ [QSA,NC,L]
+RewriteRule ^(app/)?file/(\d+)$ /app/soswapp/file.soswapp/?fid=$2 [QSA,NC,L]
+RewriteRule ^(app/)?file/([a-zA-Z0-9\-\.\_]+)$ /app/soswapp/file.soswapp/?fname=$2 [QSA,NC,L]
+#
+RewriteRule ^(app|application)/([A-Za-z0-9\-\.\_]{3,})/([A-Za-z0-9\-\.\_]{3,})/?$ %{ENV:SHORTCUT_PATH}/$2/$3/ [QSA,NC,L]
+RewriteRule ^(app|application)/([A-Za-z0-9\-\.\_]{3,})/([A-Za-z0-9\-\.\_]{3,})/(.*)$ %{ENV:SHORTCUT_PATH}/$2/$3/$4 [QSA,NC,L]
+##-APP-LOCATOR-END
+##-APP-SHORTCUT-END
+##-CUSTOM-HTTP-ERROR-START
+ErrorDocument 400 /app/400/?request=%{THE_REQUEST}
+ErrorDocument 401 /app/401/?request=%{THE_REQUEST}
+ErrorDocument 403 /app/403/?request=%{THE_REQUEST}
+ErrorDocument 404 /app/404/?request=%{THE_REQUEST}
+ErrorDocument 500 /app/500/?request=%{THE_REQUEST}
+##-CUSTOM-HTTP-ERROR-END

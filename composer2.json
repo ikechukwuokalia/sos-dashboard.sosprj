@@ -1,0 +1,47 @@
+{
+    "name": "ikechukwuokalia/sos-dashboard.sosprj",
+    "description": "7 OS Management Dashboard",
+    "type": "project",
+    "authors": [
+      {
+        "name": "Ikechukwu Okalia",
+        "email": "dev@ikechukwuokalia.com"
+      }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+      "tymfrontiers-cdn/php-data" : ">=0.1@stable",
+      "tymfrontiers-cdn/php-session" : ">=0.1@stable",
+      "tymfrontiers-cdn/php-beta-tym" : ">=0.1@stable",
+      "tymfrontiers-cdn/php-generic" : ">=0.1@stable",
+      "tymfrontiers-cdn/php-helper-fnvars" : ">=0.1@stable",
+      "tymfrontiers-cdn/php-error-log" : ">=0.1@stable",
+      "tymfrontiers-cdn/php-instance-error" : ">=0.1@stable",
+      "tymfrontiers-cdn/php-http-header" : ">=0.1@stable",
+      "tymfrontiers-cdn/php-http-client" : ">=0.1@stable",
+      "tymfrontiers-cdn/php-api-authheader" : ">=0.1@stable",
+      "tymfrontiers-cdn/php-api-authentication" : ">=0.1@stable",
+      "tymfrontiers-cdn/php-validator": ">=0.1.0@stable",
+      "tymfrontiers-cdn/php-otp": ">=0.1.0@stable",
+      "tymfrontiers-cdn/php-sos-emailer": ">=0.1.0@stable",
+      "tymfrontiers-cdn/base-service.soswapp": ">=0.1.0@stable",
+      "soswapp/jquery.soswapp" : ">=0.1@stable",
+      "soswapp/tags-input.soswapp" : ">=0.1@stable",
+      "soswapp/font-awesome.soswapp" : ">=0.1@stable",
+      "soswapp/js-generic.soswapp" : ">=0.1@stable",
+      "soswapp/dnav.soswapp" : ">=0.1@stable",
+      "soswapp/navlist.soswapp" : ">=0.1@stable",
+      "soswapp/file.soswapp" : ">=0.1@stable",
+      "soswapp/faderbox.soswapp" : ">=0.1@stable",
+      "soswapp/plugin.soswapp" : ">=0.1@stable",
+      "soswapp/theme.soswapp" : ">=0.1@stable",
+      "michelf/php-markdown": ">=1.8@stable",
+      "mossadal/math-parser": ">=1.3@stable"
+    },
+    "repositories" : [
+    ],
+    "autoload": {
+      "psr-4": {},
+      "files" : []
+    }
+}

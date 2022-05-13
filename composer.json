@@ -1,0 +1,19 @@
+{
+    "name": "ikechukwuokalia/sos-dashboard.sosprj",
+    "description": "7 OS Management Dashboard",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ikechukwuokalia\\SosDashboardSosprj\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ikechukwu Okalia",
+            "email": "dev@ikechukwuokalia.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

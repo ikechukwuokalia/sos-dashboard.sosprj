@@ -1,0 +1,23 @@
+{
+  "NAME" : "ikechukwuokalia/sos-dashboard.sosprj",
+  "TITLE" : "7 OS management dashboard project",
+  "DESCRIPTION" : "",
+  "PRJ_KEYWORDS" : "",
+  "PRJ_AUTHOR" : "",
+  "PRJ_PUBLISHER" : "",
+  "PRJ_CREATOR" : "",
+  "PRJ_PRIMARY_COLOUR" : "#000",
+  "PRJ_SECONDARY_COLOUR" : "#ffffff",
+  "PRJ_THEME" : "light",
+  "HOMEPAGE" : "https://github.com/ikechukwuokalia/sos-dashboard.sosprj",
+  "PRJ_ROOT"  : "",
+  "DOMAIN"  : "dashboard.sosprj",
+  "SUPPORT" : {
+    "EMAIL" : "dev@ikechukwuokalia.com",
+    "WEBSITE" : "https://github.com/ikechukwuokalia/sos-dashboard.sosprj",
+    "KOLLABO" : "ikechukwuokalia",
+    "TWITTER" : "ikechukwuokalia",
+    "FACEBOOK" : "ikechukwuokalia",
+    "INSTAGRAM" : "ikechukwuokalia"
+  }
+}
